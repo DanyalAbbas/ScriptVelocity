@@ -29,6 +29,12 @@ int main()
 
     // ############################
 
+    // ###DANYAL'S AREA TO CODE###
+
+    long Letters = 0, LetterCount = 0;
+    float Accuracy = 0 , Speed = 0 , LetterToWord;
+    double StartTime , StopTime = 0;
+
 
     return 0;
 
