@@ -31,13 +31,23 @@ int main()
 
     // ###DANYAL'S AREA TO CODE###
 
-    long Letters = 0, LetterCount = 0;
-    float Accuracy = 0 , Speed = 0 , LetterToWord;
+    long LettersLength = 0, LetterCount = 0, LetterToWord = 1;
+    float Accuracy = 0 , Speed = 0;
     double StartTime , StopTime = 0;
-
+    
     printf("\n\nYOUR TEXT:    \n          ");
     puts(Sentence);
-    printf( "                    SPEED: 0          ACCURACY: 0        TOTAL ERROR: 0" ) ;
+    printf( "                    SPEED: 0          ACCURACY: 0        TOTAL ERROR: 0" );
+
+    LettersLength = strlen(Sentence);
+
+    for (int i=0; i < LettersLength; i++)
+    {
+        if (Sentence[i] == ' ')
+            LetterToWord++;
+
+    }
+    printf("\n%ld", LetterToWord);
 
 
 
@@ -51,7 +61,6 @@ void gotoxy(int x,int y){
     COORD coord;
 
     coord.X = x ;
-
     coord.Y = y ;
 
     SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE),coord);
