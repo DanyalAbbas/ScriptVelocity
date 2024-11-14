@@ -25,7 +25,7 @@ int main()
 
     // ###MOAZZAM'S AREA TO CODE###
 
-    char Sentence[10000]; // Store a sentence from a file using file management in C language
+    char Sentence[10000] = "This is just some text for now till mr moazzam decides to do his work"; // Store a sentence from a file using file management in C language
 
     // ############################
 
@@ -34,6 +34,11 @@ int main()
     long Letters = 0, LetterCount = 0;
     float Accuracy = 0 , Speed = 0 , LetterToWord;
     double StartTime , StopTime = 0;
+
+    printf("\n\nYOUR TEXT:    \n          ");
+    puts(Sentence);
+    printf( "                    SPEED: 0          ACCURACY: 0        TOTAL ERROR: 0" ) ;
+
 
 
     return 0;
