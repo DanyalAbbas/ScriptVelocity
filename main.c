@@ -3,6 +3,8 @@
 #include <time.h>
 #include <stdio.h>
 
+void gotoxy(int x,int y); // Function for managing cursor on CLI
+
 int main()
 {
     printf("************************************************************************************************************************************************************************\n\n");
@@ -22,3 +24,14 @@ int main()
 
 
 }   
+
+void gotoxy(int x,int y){
+
+    COORD coord;
+
+    coord.X = x ;
+
+    coord.Y = y ;
+
+    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE),coord);
+}
