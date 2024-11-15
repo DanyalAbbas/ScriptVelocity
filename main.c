@@ -47,7 +47,12 @@ int main()
             LetterToWord++;
 
     }
-    printf("\n%ld", LetterToWord);
+    // printf("\n%ld", LetterToWord);
+
+    time_t t,t1;
+    t=clock();
+
+
 
 
 
