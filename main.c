@@ -35,9 +35,9 @@ int main()
     float Accuracy = 0 , Speed = 0;
     double StartTime , StopTime = 0;
     
-    printf("\n\nYOUR TEXT:    \n          ");
+    printf("\n\nYOUR TEXT:    \n");
     puts(Sentence);
-    printf( "                    SPEED: 0          ACCURACY: 0        TOTAL ERROR: 0" );
+    printf( "\n                    SPEED: 0          ACCURACY: 0        TOTAL ERROR: 0" );
 
     LettersLength = strlen(Sentence);
 
@@ -54,18 +54,14 @@ int main()
 
     c=getch();
     
-    gotoxy(0, 17) ;
-    printf("ENTER THE ABOVE TEXT:                     \n\n");
-    gotoxy(48, 7);
+    gotoxy(48, 9);
     printf("100%c",'%');
+    gotoxy(0, 12);
+    printf("ENTER THE ABOVE TEXT:                     \n\n");
+    
 
-    time_t t,t1;
-    t=clock();
-
-
-
-
-
+    gotoxy(0,15);
+    
     return 0;
 
 
