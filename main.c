@@ -25,7 +25,7 @@ int main()
 
     // ###MOAZZAM'S AREA TO CODE###
 
-    char Sentence[10000] = "This is just some text for now till mr moazzam decides to do his work"; // Store a sentence from a file using file management in C language
+    char c, Sentence[10000] = "This is just some text for now till mr moazzam decides to do his work"; // Store a sentence from a file using file management in C language
 
     // ############################
 
@@ -48,6 +48,16 @@ int main()
 
     }
     // printf("\n%ld", LetterToWord);
+
+    printf("\n-----------------------------------------------");
+    printf("\n\nEnter Any Key To Start Typing.........");
+
+    c=getch();
+    
+    gotoxy(0, 17) ;
+    printf("ENTER THE ABOVE TEXT:                     \n\n");
+    gotoxy(48, 7);
+    printf("100%c",'%');
 
     time_t t,t1;
     t=clock();
