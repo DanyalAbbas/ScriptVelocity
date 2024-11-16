@@ -1,7 +1,7 @@
-#include <windows.h>
-#include <string.h>
-#include <time.h>
-#include <stdio.h>
+#include <windows.h> // For gotoxy function
+#include <string.h> // For String inputs and functions
+#include <time.h> // For Time calculations
+#include <stdio.h> // For printing statements
 
 void gotoxy(int x,int y); // Function for managing cursor on CLI
 
@@ -31,41 +31,50 @@ int main()
 
     // ###DANYAL'S AREA TO CODE###
 
+    // main variable declaration
     long LettersLength = 0, LetterCount = 0;
     float Accuracy = 0 , Speed = 0;
     double StartTime , StopTime = 0, LetterToWord = 1;
-    
+
+    // Basic print statements that will be manipulated further in the code
     printf("\n\nYOUR TEXT:    \n");
     puts(Sentence);
     printf( "\n                    SPEED: 0          ACCURACY: 0        TOTAL ERROR: 0" );
 
+    // Length of the string variable "Sentence"
     LettersLength = strlen(Sentence);
 
+    // for-loop to calculate the number of spaces in the string "Sentence"
     for (int i = 0; i < LettersLength; i++)
         if (Sentence[i] == ' ')
             LetterToWord++;
-
+    
+    // calculate average space per character rate
     LetterToWord /= LettersLength;
 
     // printf("\n%ld", LetterToWord);
 
+
     printf("\n-----------------------------------------------");
     printf("\n\nEnter Any Key To Start Typing.........");
 
-    c=getch();
+    // waits for user to press any key
+    c = getch();
     
+    // change the cursor point to make "Accuracy : 100%" and going back to normal cursor position 
     gotoxy(48, 9);
-    printf("100%c",'%');
+    printf("100%c", '%');
     gotoxy(0, 12);
     printf("ENTER THE ABOVE TEXT:                     \n\n");
     
+    // Time variables using the time.h headerfile 
     time_t t,t1;
 
     t = clock();
-    int k = 0, Errors = 0;
-
     gotoxy(0,5);
 
+    // while-loop to traverse through the string variable "Sentence"
+    int k = 0, Errors = 0;
     while(Sentence[k] != NULL)
     {
         t1 = clock();
@@ -108,7 +117,7 @@ int main()
             k++;
         }
 
-            t1=clock()-t1;
+            t1 = clock() - t1;
             StartTime=((double)t1/CLOCKS_PER_SEC);
             StopTime = StopTime + StartTime;
             
