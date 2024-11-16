@@ -41,12 +41,12 @@ int main()
 
     LettersLength = strlen(Sentence);
 
-    for (int i=0; i < LettersLength; i++)
-    {
+    for (int i = 0; i < LettersLength; i++)
         if (Sentence[i] == ' ')
             LetterToWord++;
 
-    }
+    LetterToWord = LetterToWord/LettersLength;
+
     // printf("\n%ld", LetterToWord);
 
     printf("\n-----------------------------------------------");
@@ -106,9 +106,7 @@ int main()
                 printf("%c", Sentence[j]);
             printf("%c", c);
             k++;
-
         }
-    
 
             t1=clock()-t1;
             StartTime=((double)t1/CLOCKS_PER_SEC);
@@ -116,15 +114,21 @@ int main()
             
             gotoxy(27,7);
             printf("%0.2f WPM ",(float)(LetterToWord*LetterCount)/(StopTime/60));
+            
             gotoxy(0,5);
-
             for(int j=0; j<k; j++)
                 printf("%c",Sentence[j]);
     }
 
     t=clock()-t;
 
+    double YourTime =((double)t/CLOCKS_PER_SEC);
+    YourTime -= (YourTime-StopTime);
 
+    gotoxy(0,5);
+
+    for(int j = 0; j < k; j++)
+        printf("%c",Sentence[j]);
 
     return 0;
 
