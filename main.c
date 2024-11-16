@@ -97,6 +97,17 @@ int main()
             for(int j = 0; j < k; j++)
                 printf("%c", Sentence[j]);
         }
+        else
+        {
+            LetterCount++;
+            gotoxy(0,12);
+
+            for(int j = 0; j < k; j++)
+                printf("%c", Sentence[j]);
+            printf("%c", c);
+            k++;
+
+        }
     
 
             t1=clock()-t1;
