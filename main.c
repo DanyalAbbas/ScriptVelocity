@@ -134,11 +134,17 @@ int main()
     double YourTime =((double)t/CLOCKS_PER_SEC);
     YourTime -= (YourTime-StopTime);
 
-    gotoxy(0,5);
+    gotoxy(0,12);
 
     for(int j = 0; j < k; j++)
         printf("%c",Sentence[j]);
 
+    
+    printf("\n\n-----------------------------------------------\n\n");
+    printf("YOUR RESULT");
+    printf("\n\nYOUR SPEED: %0.2f WPM  \n\n** ( Length Of One Word Is Taken As %0.2f Letters )\n", (LetterToWord*LettersLength)/(YourTime/60),(float)LettersLength/(LetterToWord*LettersLength));
+    printf("\nEnter Any Key to Exit......");
+    getch();
     return 0;
 
 
