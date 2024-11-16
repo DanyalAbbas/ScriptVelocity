@@ -31,9 +31,9 @@ int main()
 
     // ###DANYAL'S AREA TO CODE###
 
-    long LettersLength = 0, LetterCount = 0, LetterToWord = 1;
+    long LettersLength = 0, LetterCount = 0;
     float Accuracy = 0 , Speed = 0;
-    double StartTime , StopTime = 0;
+    double StartTime , StopTime = 0, LetterToWord = 1;
     
     printf("\n\nYOUR TEXT:    \n");
     puts(Sentence);
@@ -45,7 +45,7 @@ int main()
         if (Sentence[i] == ' ')
             LetterToWord++;
 
-    LetterToWord = LetterToWord/LettersLength;
+    LetterToWord /= LettersLength;
 
     // printf("\n%ld", LetterToWord);
 
@@ -113,11 +113,11 @@ int main()
             StopTime = StopTime + StartTime;
             
             gotoxy(27,7);
-            printf("%0.2f WPM ",(float)(LetterToWord*LetterCount)/(StopTime/60));
+            printf("%0.2f WPM ", (float)(LetterToWord*LetterCount)/(StopTime/60));
             
             gotoxy(0,5);
             for(int j=0; j<k; j++)
-                printf("%c",Sentence[j]);
+                printf("%c", Sentence[j]);
     }
 
     t=clock()-t;
