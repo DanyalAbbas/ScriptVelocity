@@ -61,16 +61,43 @@ int main()
     
     time_t t,t1;
 
-    t=clock();
-
-    int k=0;
+    t = clock();
+    int k = 0, Errors = 0;
 
     gotoxy(0,5);
 
-    while(Sentence[k]!='\0'){
-            t1=clock();
+    while(Sentence[k] != NULL)
+    {
+        t1 = clock();
+        
+        c = getch();
 
-             ;
+        if(c != Sentence[k])
+        {
+            printf("\a");
+            Errors++;
+            
+            Accuracy = ((float)100/LettersLength)*(LettersLength-Errors);
+            
+                if(Accuracy <= 0)
+                {
+                    gotoxy(48, 7);
+                    printf("0.00%c    ",'%');
+                }
+                if(Accuracy > 0)
+                {
+                    gotoxy(48, 7);
+                    printf("%0.2f%c ", Accuracy, '%');
+                }
+
+            gotoxy(70, 7);
+            printf("%d", Errors);
+            gotoxy(0, 5);
+
+            for(int j = 0; j < k; j++)
+                printf("%c", Sentence[j]);
+        }
+    
 
             t1=clock()-t1;
             StartTime=((double)t1/CLOCKS_PER_SEC);
