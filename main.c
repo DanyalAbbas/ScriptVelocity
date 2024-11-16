@@ -59,9 +59,35 @@ int main()
     gotoxy(0, 12);
     printf("ENTER THE ABOVE TEXT:                     \n\n");
     
+    time_t t,t1;
 
-    gotoxy(0,15);
-    
+    t=clock();
+
+    int k=0;
+
+    gotoxy(0,5);
+
+    while(Sentence[k]!='\0'){
+            t1=clock();
+
+             ;
+
+            t1=clock()-t1;
+            StartTime=((double)t1/CLOCKS_PER_SEC);
+            StopTime = StopTime + StartTime;
+            
+            gotoxy(27,7);
+            printf("%0.2f WPM ",(float)(LetterToWord*LetterCount)/(StopTime/60));
+            gotoxy(0,5);
+
+            for(int j=0; j<k; j++)
+                printf("%c",Sentence[j]);
+    }
+
+    t=clock()-t;
+
+
+
     return 0;
 
 
