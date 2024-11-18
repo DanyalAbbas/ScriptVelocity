@@ -150,7 +150,8 @@ int main()
 
 }   
 
-void gotoxy(int x,int y){
+void gotoxy(int x,int y)
+{
 
     COORD coord;
 
