@@ -9,13 +9,14 @@ int main()
 {
     // ###SUBHAN'S AREA TO CODE###
 
-
+    printf("\n\n");
     printf("  _________            .__        __ ____   ____     .__                .__  __          \n");
     printf(" /   _____/ ___________|__|______/  |\\   \\ /   /____ |  |   ____   ____ |__|/  |_ ___.__.\n");
     printf(" \\_____  \\_/ ___\\_  __ \\  \\____ \\   __\\   Y   // __ \\|  |  /  _ \\_/ ___\\|  \\   __<   |  |\n");
     printf(" /        \\  \\___|  | \\/  |  |_> >  |  \\     /\\  ___/|  |_(  <_> )  \\___|  ||  |  \\___  |\n");
     printf("/_______  /\\___  >__|  |__|   __/|__|   \\___/  \\___  >____/\\____/ \\___  >__||__|  / ____|\n");
     printf("        \\/     \\/         |__|                     \\/                 \\/          \\/     \n");
+    printf("\n\n");
    
     // ############################
 
@@ -58,16 +59,16 @@ int main()
     c = getch();
     
     // change the cursor point to make "Accuracy : 100%" and going back to normal cursor position 
-    gotoxy(48, 9);
+    gotoxy(48, 18);
     printf("100%c", '%');
-    gotoxy(0, 12);
+    gotoxy(0, 21);
     printf("ENTER THE ABOVE TEXT:                     \n\n");
     
     // Time variables using the time.h headerfile 
     time_t t,t1;
 
     t = clock();
-    gotoxy(0,5);
+    gotoxy(0,16);
 
     // while-loop to traverse through the string variable "Sentence"
     int k = 0, Errors = 0;
@@ -86,18 +87,18 @@ int main()
             
                 if(Accuracy <= 0)
                 {
-                    gotoxy(48, 7);
+                    gotoxy(48, 18);
                     printf("0.00%c    ",'%');
                 }
                 if(Accuracy > 0)
                 {
-                    gotoxy(48, 7);
+                    gotoxy(48, 18);
                     printf("%0.2f%c ", Accuracy, '%');
                 }
 
-            gotoxy(70, 7);
+            gotoxy(70, 18);
             printf("%d", Errors);
-            gotoxy(0, 5);
+            gotoxy(0, 16);
 
             for(int j = 0; j < k; j++)
                 printf("%c", Sentence[j]);
@@ -105,7 +106,7 @@ int main()
         else
         {
             LetterCount++;
-            gotoxy(0,12);
+            gotoxy(0,22);
 
             for(int j = 0; j < k; j++)
                 printf("%c", Sentence[j]);
@@ -117,10 +118,10 @@ int main()
             StartTime=((double)t1/CLOCKS_PER_SEC);
             StopTime = StopTime + StartTime;
             
-            gotoxy(27,7);
+            gotoxy(27,18);
             printf("%0.2f WPM ", (float)(LetterToWord*LetterCount)/(StopTime/60));
             
-            gotoxy(0,5);
+            gotoxy(0,16);
             for(int j=0; j<k; j++)
                 printf("%c", Sentence[j]);
     }
@@ -130,7 +131,7 @@ int main()
     double YourTime =((double)t/CLOCKS_PER_SEC);
     YourTime -= (YourTime-StopTime);
 
-    gotoxy(0,12);
+    gotoxy(0,22);
 
     for(int j = 0; j < k; j++)
         printf("%c",Sentence[j]);
