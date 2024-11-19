@@ -2,6 +2,7 @@
 #include <string.h> // For String inputs and functions
 #include <time.h> // For Time calculations
 #include <stdio.h> // For printing statements
+#include <stdlib.h>
 
 void gotoxy(int x,int y); // Function for managing cursor on CLI
 
@@ -22,9 +23,31 @@ int main()
     // ############################
 
     // ###MOAZZAM'S AREA TO CODE###
+    FILE *file;
+    int total_sentences = 10;
+    int random_line;
+    srand(time(NULL));
 
-    char c, Sentence[10000] = "This is just some text for now till mr moazzam decides to do his work"; // Store a sentence from a file using file management in C language
+    random_line = rand() % total_sentences;
 
+    file = fopen("sentences.txt", "r");
+
+    char c, Sentence[10000]; // Store a sentence from a file using file management in C language
+
+    for (int i = 0; i <= random_line; i++) {
+        if (fgets(Sentence, sizeof(Sentence), file) == NULL) {
+            printf("Error: Could not read the file.\n");
+            fclose(file);
+            return 1;
+        }
+    }
+
+    fclose(file);
+    size_t len = strlen(Sentence);
+    if (Sentence[len - 1] == '\n') {
+        Sentence[len - 1] = '\0';
+    }
+    
     // ############################
 
     // ###DANYAL'S AREA TO CODE###
