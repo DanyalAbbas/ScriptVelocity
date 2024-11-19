@@ -7,6 +7,7 @@ void gotoxy(int x,int y); // Function for managing cursor on CLI
 
 int main()
 {
+    system("cls");
     // ###SUBHAN'S AREA TO CODE###
 
     printf("\n\n");
@@ -59,16 +60,16 @@ int main()
     c = getch();
     
     // change the cursor point to make "Accuracy : 100%" and going back to normal cursor position 
-    gotoxy(48, 18);
+    gotoxy(48, 15);
     printf("100%c", '%');
-    gotoxy(0, 21);
+    gotoxy(0, 18);
     printf("ENTER THE ABOVE TEXT:                     \n\n");
     
     // Time variables using the time.h headerfile 
     time_t t,t1;
 
     t = clock();
-    gotoxy(0,16);
+    gotoxy(0,13);
 
     // while-loop to traverse through the string variable "Sentence"
     int k = 0, Errors = 0;
@@ -87,18 +88,18 @@ int main()
             
                 if(Accuracy <= 0)
                 {
-                    gotoxy(48, 18);
+                    gotoxy(48, 15);
                     printf("0.00%c    ",'%');
                 }
                 if(Accuracy > 0)
                 {
-                    gotoxy(48, 18);
+                    gotoxy(48, 15);
                     printf("%0.2f%c ", Accuracy, '%');
                 }
 
-            gotoxy(70, 18);
+            gotoxy(70, 15);
             printf("%d", Errors);
-            gotoxy(0, 16);
+            gotoxy(0, 13);
 
             for(int j = 0; j < k; j++)
                 printf("%c", Sentence[j]);
@@ -106,7 +107,7 @@ int main()
         else
         {
             LetterCount++;
-            gotoxy(0,22);
+            gotoxy(0,20);
 
             for(int j = 0; j < k; j++)
                 printf("%c", Sentence[j]);
@@ -118,10 +119,10 @@ int main()
             StartTime=((double)t1/CLOCKS_PER_SEC);
             StopTime = StopTime + StartTime;
             
-            gotoxy(27,18);
+            gotoxy(27,15);
             printf("%0.2f WPM ", (float)(LetterToWord*LetterCount)/(StopTime/60));
             
-            gotoxy(0,16);
+            gotoxy(0,13);
             for(int j=0; j<k; j++)
                 printf("%c", Sentence[j]);
     }
@@ -131,7 +132,7 @@ int main()
     double YourTime =((double)t/CLOCKS_PER_SEC);
     YourTime -= (YourTime-StopTime);
 
-    gotoxy(0,22);
+    gotoxy(0,20);
 
     for(int j = 0; j < k; j++)
         printf("%c",Sentence[j]);
