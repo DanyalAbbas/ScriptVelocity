@@ -1,14 +1,19 @@
+// SCRIPT VELOCITY - A Typing Speed Checker CLI Program
+// By Danyal Abbas (CT-24084), Moazzam Farooqui (CT-24068), and Subhan Khan (CT-24075)
+
+
 #include <windows.h> // For gotoxy function
 #include <string.h> // For String inputs and functions
 #include <time.h> // For Time calculations
 #include <stdio.h> // For printing statements
-#include <stdlib.h>
+#include <stdlib.h> // For File Management
 
 void gotoxy(int x,int y); // Function for managing cursor on CLI
 
 int main()
 {
-    system("cls");
+    system("cls"); // To first clear out the screen
+
     // ###SUBHAN'S AREA TO CODE###
 
     printf("\n\n");
@@ -28,25 +33,20 @@ int main()
     int random_line;
     srand(time(NULL));
 
-    random_line = rand() % total_sentences;
+    random_line = rand() % total_sentences; // random function to pick a random sentence from the file
 
-    file = fopen("sentences.txt", "r");
+    file = fopen("sentences.txt", "r"); // reading the file sentences.txt
 
     char c, Sentence[10000]; // Store a sentence from a file using file management in C language
 
-    for (int i = 0; i <= random_line; i++) {
-        if (fgets(Sentence, sizeof(Sentence), file) == NULL) {
-            printf("Error: Could not read the file.\n");
-            fclose(file);
-            return 1;
-        }
-    }
-
+    for (int i = 0; i <= random_line; i++)
+        fgets(Sentence, sizeof(Sentence), file); // adding the random sentence in the variable
     fclose(file);
+
     size_t len = strlen(Sentence);
-    if (Sentence[len - 1] == '\n') {
+    // Removing the "\n" from the sentence and replacing it with NULL character
+    if (Sentence[len - 1] == '\n')
         Sentence[len - 1] = '\0';
-    }
     
     // ############################
 
@@ -96,11 +96,12 @@ int main()
 
     // while-loop to traverse through the string variable "Sentence"
     int k = 0, Errors = 0;
-    while(Sentence[k] != NULL)
+    while(Sentence[k] != '\0')
     {
+        // clock ticks
         t1 = clock();
         
-        c = getch();
+        c = getch(); // takes an input character
 
         if(c != Sentence[k])
         {
@@ -138,21 +139,21 @@ int main()
             k++;
         }
 
-            t1 = clock() - t1;
-            StartTime=((double)t1/CLOCKS_PER_SEC);
+            t1 = clock() - t1; // total clock ticks through the loop
+            StartTime=((double)t1/CLOCKS_PER_SEC); // converting the ticks to seconds 
             StopTime = StopTime + StartTime;
             
             gotoxy(27,15);
-            printf("%0.2f WPM ", (float)(LetterToWord*LetterCount)/(StopTime/60));
+            printf("%0.2f WPM ", (float)(LetterToWord*LetterCount)/(StopTime/60)); // calculating WPM (Words Per Minute)
             
             gotoxy(0,13);
             for(int j=0; j<k; j++)
                 printf("%c", Sentence[j]);
     }
 
-    t=clock()-t;
+    t=clock()-t; // clock ticks outside the loop
 
-    double YourTime =((double)t/CLOCKS_PER_SEC);
+    double YourTime =((double)t/CLOCKS_PER_SEC); // converting to seconds 
     YourTime -= (YourTime-StopTime);
 
     gotoxy(0,20);
@@ -160,7 +161,7 @@ int main()
     for(int j = 0; j < k; j++)
         printf("%c",Sentence[j]);
 
-    
+    // printing out the results
     printf("\n\n-----------------------------------------------\n\n");
     printf("YOUR RESULT");
     printf("\n\nYOUR SPEED: %0.2f WPM  \n\n** ( Length Of One Word Is Taken As %0.2f Letters )\n", (LetterToWord*LettersLength)/(YourTime/60),(float)LettersLength/(LetterToWord*LettersLength));
@@ -171,10 +172,11 @@ int main()
 
 }   
 
+// A C-Language implementation of the C++ function gotoxy()
 void gotoxy(int x,int y)
 {
 
-    COORD coord;
+    COORD coord; // COORD STRUCT
 
     coord.X = x ;
     coord.Y = y ;
